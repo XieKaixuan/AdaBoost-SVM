@@ -1,0 +1,28 @@
+Usage:
+
+1. Compile 
+	make clean; make
+
+2. Run training mode
+	./Zhang-Project4 -c c_value -W weight_file training_file
+	
+3. Run testing mode
+	./Zhang-Project4-predict testing_file ./saved_models output_file
+
+4. Batch run
+	./run_dataname.sh 
+	
+** Note **
+	Please modify the initial gamma (named "gamma" in Line 116) in Zhang-Project4.c before compiling. The C value for each dataset was found by grid.py to get the best performance. 
+	glass: gamma = 2;    C = 515.561241629
+	liver: gamma = 1.5;  C = 147.03338944
+	vowel: gamma = 10;   C = 4.0
+
+
+
+File included:
+	dataname.wgt				Initial weight file
+	Zhang-Project4.c			Training code
+	Zhang-Project4-predict.c	Testing code
+	saved_models				Directory to store component learners. Training code writes all the model files to this directory and testing code read models from this directory.
+	run_*.sh					Batch file to run AdaBoost.M1 and AdaBoost.M1 with varying C. 
